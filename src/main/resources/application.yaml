@@ -1,0 +1,46 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///travel?serverTimezone=UTC
+    username: root
+    password: 123456
+# 上传文件
+  servlet:
+    multipart:
+      max-file-size: 10MB # 最大单个文件
+      max-request-size: 10MB # 一次请求最大上传
+  thymeleaf:
+    mode: HTML
+    cache: false
+    prefix: classpath:/templates
+
+
+# 配置mybatis-plus
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: false   # 因为数据库字段和实体类一样，不需要驼峰命名
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+
+
+    # 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'
+
+# 发送邮件配置
+mail:
+  # 发件人地址
+  user: 461618768@qq.com
+  # 发件人密码
+  password: yioaiekdcphnbije
+# 项目路径
+project:
+  path: http://localhost
+
